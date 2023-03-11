@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "client",
+      "name": "💻 client"
+    },
+    {
+      "path": "posts",
+      "name": "📫 posts"
+    },
+    {
+      "path": "comments",
+      "name": "💬 comments"
+    }
+  ],
+  "settings": {}
+}
