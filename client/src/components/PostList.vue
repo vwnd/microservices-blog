@@ -3,6 +3,7 @@
     <div v-for="post in posts" :key="post.id" class="card" style="width: 30%">
       <div class="card-body">
         <h3 class="card-title">{{ post.title }}</h3>
+        <CommentList :post-id="post.id" />
         <CommentCreate :post-id="post.id" />
       </div>
     </div>
@@ -13,6 +14,7 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import CommentCreate from "./CommentCreate.vue";
+import CommentList from "./CommentList.vue";
 
 type Post = {
   id: string;
