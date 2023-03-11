@@ -11,6 +11,10 @@
     {
       "path": "comments",
       "name": "💬 comments"
+    },
+    {
+      "path": "event-bus",
+      "name": "🚌 event-bus"
     }
   ],
   "settings": {}
