@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+import { usePosts } from "@/stores/posts.store";
 import axios from "axios";
 import { ref } from "vue";
 
@@ -19,15 +20,10 @@ const props = defineProps({
 });
 
 const commentInput = ref("");
+const postStore = usePosts();
 
-async function handleCommentSubmit(event: Event) {
-  const { data } = await axios.post(
-    `http://localhost:4001/posts/${props.postId}/comments/`,
-    {
-      content: commentInput.value,
-    }
-  );
-
+async function handleCommentSubmit() {
+  await postStore.createComment(props.postId, commentInput.value);
   commentInput.value = "";
 }
 </script>

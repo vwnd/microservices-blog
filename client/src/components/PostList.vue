@@ -29,6 +29,12 @@ store.$onAction(({ name, after }) => {
       store.getPostsAndComments();
     });
   }
+
+  if (name == "createComment") {
+    after(() => {
+      store.getPostsAndComments();
+    });
+  }
 });
 
 onMounted(async () => {

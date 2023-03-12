@@ -31,6 +31,12 @@ export const usePosts = defineStore({
       });
     },
 
+    async createComment(postId: string, content: string) {
+      await axios.post(`http://localhost:4001/posts/${postId}/comments/`, {
+        content,
+      });
+    },
+
     async getPostsAndComments() {
       const { data } = await axios.get("http://localhost:4002/posts");
       this.posts = Object.keys(data).map((k) => data[k]);
