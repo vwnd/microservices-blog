@@ -1,28 +1,17 @@
 <template>
   <ul>
-    <li v-for="comment of comments" :key="comment.id">
+    <li v-for="comment of props.comments" :key="comment.id">
       {{ comment.content }}
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import type { PostComment } from "@/stores/posts.store";
 
-const props = defineProps({
-  postId: { type: String, required: true },
-});
-
-const comments = ref<{ id: string; content: string }[]>();
-
-onMounted(async () => {
-  const { data } = await axios.get(
-    `http://localhost:4001/posts/${props.postId}/comments`
-  );
-
-  comments.value = data;
-});
+const props = defineProps<{
+  comments: PostComment[];
+}>();
 </script>
 
 <style scoped></style>

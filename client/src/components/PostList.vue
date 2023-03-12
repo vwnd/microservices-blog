@@ -8,7 +8,7 @@
     >
       <div class="card-body">
         <h3 class="card-title">{{ post.title }}</h3>
-        <CommentList :post-id="post.id" />
+        <CommentList :comments="post.comments" />
         <CommentCreate :post-id="post.id" />
       </div>
     </div>
@@ -26,13 +26,13 @@ const store = usePosts();
 store.$onAction(({ name, after }) => {
   if (name == "createPost") {
     after(() => {
-      store.getPosts();
+      store.getPostsAndComments();
     });
   }
 });
 
 onMounted(async () => {
-  await store.getPosts();
+  await store.getPostsAndComments();
 });
 </script>
 
