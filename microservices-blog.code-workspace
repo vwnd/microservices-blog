@@ -15,6 +15,10 @@
     {
       "path": "event-bus",
       "name": "🚌 event-bus"
+    },
+    {
+      "path": "query",
+      "name": "❓query"
     }
   ],
   "settings": {}
