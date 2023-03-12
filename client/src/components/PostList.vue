@@ -1,6 +1,11 @@
 <template>
   <div class="d-flex flex-row flex-wrap justify-content-between gap-3">
-    <div v-for="post in posts" :key="post.id" class="card" style="width: 30%">
+    <div
+      v-for="post in store.posts"
+      :key="post.id"
+      class="card"
+      style="width: 30%"
+    >
       <div class="card-body">
         <h3 class="card-title">{{ post.title }}</h3>
         <CommentList :post-id="post.id" />
@@ -11,21 +16,23 @@
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
-import { onMounted, ref } from "vue";
+import { usePosts } from "@/stores/posts.store";
+import { onMounted } from "vue";
 import CommentCreate from "./CommentCreate.vue";
 import CommentList from "./CommentList.vue";
 
-type Post = {
-  id: string;
-  title: string;
-};
+const store = usePosts();
 
-const posts = ref<Post[]>([]);
+store.$onAction(({ name, after }) => {
+  if (name == "createPost") {
+    after(() => {
+      store.getPosts();
+    });
+  }
+});
 
 onMounted(async () => {
-  const { data } = await axios.get("http://localhost:4000/posts/");
-  posts.value = Object.keys(data).map((k) => data[k]);
+  await store.getPosts();
 });
 </script>
 

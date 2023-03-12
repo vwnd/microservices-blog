@@ -12,15 +12,13 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import axios from "axios";
+import { usePosts } from "@/stores/posts.store";
 
 const postTitle = ref("");
+const { createPost } = usePosts();
 
 async function handleSubmit(payload: Event) {
-  await axios.post("http://localhost:4000/posts", {
-    title: postTitle.value,
-  });
-
+  await createPost({ title: postTitle.value });
   postTitle.value = "";
 }
 </script>
