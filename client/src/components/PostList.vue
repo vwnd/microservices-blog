@@ -37,8 +37,8 @@ store.$onAction(({ name, after }) => {
   }
 });
 
-onMounted(async () => {
-  await store.getPostsAndComments();
+onMounted(() => {
+  store.getPostsAndComments();
 });
 </script>
 
