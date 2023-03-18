@@ -41,5 +41,5 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4001, () => {
-  console.log("Listeting on 4001");
+  console.log("💬 Comments - Listeting on 4001");
 });
