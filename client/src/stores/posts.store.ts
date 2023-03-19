@@ -5,6 +5,7 @@ export type PostComment = {
   id: string;
   content: string;
   postId: string;
+  status: "approved" | "rejected" | "pending";
 };
 
 type Post = {
