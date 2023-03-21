@@ -5,8 +5,12 @@ import axios from "axios";
 const app = express();
 app.use(bodyParser.json());
 
+const events = [];
+
 app.post("/events", (req, res) => {
   const event = req.body;
+
+  events.push(event);
 
   console.log(
     `Handling [${event.type}] with data: `,
@@ -19,6 +23,10 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:4003/events", event);
 
   res.send({ status: "OK" });
+});
+
+app.get("/events", (req, res) => {
+  res.send(events);
 });
 
 app.listen(4005, () => {
