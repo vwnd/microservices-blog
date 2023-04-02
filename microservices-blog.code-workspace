@@ -18,11 +18,15 @@
     },
     {
       "path": "query",
-      "name": "❓query"
+      "name": "❓ query"
     },
     {
       "path": "moderation",
       "name": "👮 moderation"
+    },
+    {
+      "path": "infra",
+      "name": "⚙️ infra"
     }
   ],
   "settings": {}
