@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
-    "start": "dev"
+    "start": "npm run dev"
   },
   "dependencies": {
     "pinia": "^2.0.33",
