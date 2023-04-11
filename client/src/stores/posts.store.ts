@@ -27,7 +27,7 @@ export const usePosts = defineStore({
   },
   actions: {
     async createPost({ title }: { title: string }) {
-      await axios.post("http://posts.com:4000/posts", {
+      await axios.post("http://posts.com:4000/posts/create", {
         title,
       });
     },
