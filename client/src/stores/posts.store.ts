@@ -27,19 +27,19 @@ export const usePosts = defineStore({
   },
   actions: {
     async createPost({ title }: { title: string }) {
-      await axios.post("http://posts.com:4000/posts/create", {
+      await axios.post("http://posts.com/posts/create", {
         title,
       });
     },
 
     async createComment(postId: string, content: string) {
-      await axios.post(`http://posts.com:4001/posts/${postId}/comments/`, {
+      await axios.post(`http://posts.com/posts/${postId}/comments/`, {
         content,
       });
     },
 
     async getPostsAndComments() {
-      const { data } = await axios.get("http://posts.com:4002/posts");
+      const { data } = await axios.get("http://posts.com/posts");
       this.posts = Object.keys(data).map((k) => data[k]);
       return data;
     },
