@@ -12,7 +12,6 @@
 
 <script setup lang="ts">
 import { usePosts } from "@/stores/posts.store";
-import axios from "axios";
 import { ref } from "vue";
 
 const props = defineProps({
